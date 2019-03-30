@@ -100,10 +100,10 @@ function myDs(){
 			Fper2();
 		} else {
 		arr = arr + arr1;
-		}
 		var arrS = arr.replace(/,/g, "");
 		document.getElementById("included").innerHTML = arrS;
 		document.getElementById("numbers").innerHTML = ("The amount of digits is: " + arrS.length);
+		}
 		myDs();
 		my2xs();
 		Fper1();
