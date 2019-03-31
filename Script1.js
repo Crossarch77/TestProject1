@@ -2,7 +2,6 @@ function Format(){
 	var row = document.getElementById("included").textContent;
 	str = row.replace(/	/g, "");
 	str1 = str.replace(/\n/g, "");
-	//str2 = str1.replace(/,/g, "");
 	document.getElementById("included").innerHTML = str1;
 	document.getElementById("numbers").innerHTML = ("The amount of digits is: " + str1.length);
 	document.getElementById("intro").innerHTML = "Here are your results";
