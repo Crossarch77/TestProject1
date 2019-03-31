@@ -1,33 +1,29 @@
-function myFt(){
+function Format(){
 	var row = document.getElementById("included").textContent;
 	str = row.replace(/	/g, "");
 	str1 = str.replace(/\n/g, "");
-	str2 = str1.replace(/,/g, "");
-	document.getElementById("included").innerHTML = str2;
-	document.getElementById("numbers").innerHTML = ("The amount of digits is: " + str2.length);
+	//str2 = str1.replace(/,/g, "");
+	document.getElementById("included").innerHTML = str1;
+	document.getElementById("numbers").innerHTML = ("The amount of digits is: " + str1.length);
 	document.getElementById("intro").innerHTML = "Here are your results";
 	calc();
 }
 
-function arraying(){
+function DoubleUp(){
 	var row = document.getElementById("included").textContent;
 	var arr = Array.from(row);
-	var arr1 = Array.from(row);
-	shuffle(arr1);
-	arr.toString();
-	arr1.toString();
-	if ((arr + arr1).length > 1000000){
-		var i = 1000000 - arr1.length;
-		var arrMax = arr + arr1.slice(0, i);
-		var arrMax = arrMax.replace(/,/g, "");
-		document.getElementById("included").innerHTML = arrMax;
-		document.getElementById("numbers").innerHTML = ("The amount of digits is: " + arrMax.length);
+	shuffle(arr);
+	var text = arr.join("");
+	if ((row + text).length > 1000000){
+		var i = 1000000 - text.length;
+		var textMax = row + text.slice(0, i);
+		document.getElementById("included").innerHTML = textMax;
+		document.getElementById("numbers").innerHTML = ("The amount of digits is: " + textMax.length);
 		calc();
 	} else {
-	arr = arr + arr1;
-	var arrS = arr.replace(/,/g, "");
-	document.getElementById("included").innerHTML = arrS;
-	document.getElementById("numbers").innerHTML = ("The amount of digits is: " + arrS.length);
+	row = row + text;
+	document.getElementById("included").innerHTML = row;
+	document.getElementById("numbers").innerHTML = ("The amount of digits is: " + row.length);
 	calc();
 	}
 }
