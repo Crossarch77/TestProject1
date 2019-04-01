@@ -1,11 +1,31 @@
-function Format(){
-	var row = document.getElementById("included").textContent;
-	str = row.replace(/	/g, "");
-	str1 = str.replace(/\n/g, "");
-	document.getElementById("included").innerHTML = str1;
-	document.getElementById("numbers").innerHTML = ("The amount of digits is: " + str1.length);
-	document.getElementById("intro").innerHTML = "Here are your results";
-	calc();
+var rowG = [];
+
+$(document).ready(function(){
+		$("#included").click(function getNumbers(){
+			var rowS = [];
+			for (var i = 0; i < 100; i++){
+				Withdraw();
+				rowS += rowG;
+			}
+			$(this).text(rowS);
+			$("#intro").text("Here are your results!");
+			$("#numbers").text("Here are your digits");
+			$("#numbersAmount").text("The amount of digits is: " + rowS.length)
+			calc();
+		});
+});
+
+function Withdraw(){
+	$.ajax({
+		url: "https://www.random.org/integers/?num=10000&min=0&max=1&col=5&base=10&format=plain&rnd=new",
+		type: "GET",
+		success: function(data){
+			data = data.replace(/	/g, "");
+			rowG = data.replace(/\n/g, "");
+		},
+		async: false
+	});
+	return rowG;
 }
 
 function DoubleUp(){
@@ -17,12 +37,12 @@ function DoubleUp(){
 		var i = 1000000 - text.length;
 		var textMax = row + text.slice(0, i);
 		document.getElementById("included").innerHTML = textMax;
-		document.getElementById("numbers").innerHTML = ("The amount of digits is: " + textMax.length);
+		document.getElementById("numbersAmount").innerHTML = ("The amount of digits is: " + textMax.length);
 		calc();
 	} else {
 	row = row + text;
 	document.getElementById("included").innerHTML = row;
-	document.getElementById("numbers").innerHTML = ("The amount of digits is: " + row.length);
+	document.getElementById("numbersAmount").innerHTML = ("The amount of digits is: " + row.length);
 	calc();
 	}
 }

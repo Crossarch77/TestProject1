@@ -2,11 +2,7 @@
 <head>
 <title>Demo</title>
 <script src="D:/Crossarch/jquery-3.3.1.js"></script>
-<script>
-	$(function Include(){
-		$("#included").load("https://www.random.org/integers/?num=100&min=0&max=1&col=5&base=10&format=html&rnd=new .data");
-	});
-</script>
+<script src="Script1.js"></script>
 <style>
 #intro {
 	font-family: Times New Roman;
@@ -31,81 +27,77 @@
 
 <body>
 <div class="up">
-<p id="intro"> Please, format the text at first before proceeding! Otherwise results might be inaccurate or buttons might not work at all</p>
-<button onclick="Format()"> Format the numbers </button>
-<p id ="numbers">Here's your list of numbers, format it please.</p>
-<p id="included"></p>
-<p id="includedtemp"></p>
+<p id="intro"> Please, click on "Click here!" to begin</p>
+<p id ="numbers"></p>
+<p id ="numbersAmount"></p>
+<p id="included">Click here!</p>
 <button onclick="DoubleUp()"> Double up the amount (up to 1m) </button>
-<p style="font-size: 18">Fair warning: it may take some time with bigger amounts.</p>
+<p style="font-size: 18; color: red">Fair warning: it may take some time with bigger amounts.</p>
 </div>
-<br><br>
 <div class="results">
+<p style="font-size: 36">RESULTS</p>
 <p id="divider">1 digit stats</p>
 <p>
-	<span id="0s"></span>
+	<span id="0s">0, 0%</span>
 	<br>
-	<span id="0s%"></span>
+	<span id="0s%">0, 0%</span>
 	<br><br>
-	<span id="1s"></span>
+	<span id="1s">0, 0%</span>
 	<br>
-	<span id="1s%"></span>
+	<span id="1s%">0, 0%</span>
 </p>
 <p id="divider">Combos of 2 digits stats</p>
 <p>
-	<span id="00s"></span>
+	<span id="00s">0, 0%</span>
 	<br>
-	<span id="00s%"></span>
+	<span id="00s%">0, 0%</span>
 	<br><br>
-	<span id="01s"></span>
+	<span id="01s">0, 0%</span>
 	<br>
-	<span id="01s%"></span>
+	<span id="01s%">0, 0%</span>
 	<br><br>
-	<span id="10s"></span>
+	<span id="10s">0, 0%</span>
 	<br>
-	<span id="10s%"></span>
+	<span id="10s%">0, 0%</span>
 	<br><br>
-	<span id="11s"></span>
+	<span id="11s">0, 0%</span>
 	<br>
-	<span id="11s%"></span>
+	<span id="11s%">0, 0%</span>
 </p>
 <p id="divider">Combos of 3 digits stats</p>
 <p>
-	<span id="000s"></span>
+	<span id="000s">0, 0%</span>
 	<br>
-	<span id="000s%"></span>
+	<span id="000s%">0, 0%</span>
 	<br><br>
-	<span id="001s"></span>
+	<span id="001s">0, 0%</span>
 	<br>
-	<span id="001s%"></span>
+	<span id="001s%">0, 0%</span>
 	<br><br>
-	<span id="010s"></span>
+	<span id="010s">0, 0%</span>
 	<br>
-	<span id="010s%"></span>
+	<span id="010s%">0, 0%</span>
 	<br><br>
-	<span id="011s"></span>
+	<span id="011s">0, 0%</span>
 	<br>
-	<span id="011s%"></span>
+	<span id="011s%">0, 0%</span>
 	<br><br>
-	<span id="100s"></span>
+	<span id="100s">0, 0%</span>
 	<br>
-	<span id="100s%"></span>
+	<span id="100s%">0, 0%</span>
 	<br><br>
-	<span id="101s"></span>
+	<span id="101s">0, 0%</span>
 	<br>
-	<span id="101s%"></span>
+	<span id="101s%">0, 0%</span>
 	<br><br>
-	<span id="110s"></span>
+	<span id="110s">0, 0%</span>
 	<br>
-	<span id="110s%"></span>
+	<span id="110s%">0, 0%</span>
 	<br><br>
-	<span id="111s"></span>
+	<span id="111s">0, 0%</span>
 	<br>
-	<span id="111s%"></span>
+	<span id="111s%">0, 0%</span>
 </p>
 </div>
-
-<script src="Script1.js">
-</script>
 </body>
 </html>
