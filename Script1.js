@@ -3,7 +3,7 @@ var rowG = [];
 $(document).ready(function(){
 		$("#included").click(function getNumbers(){
 			var rowS = [];
-			for (var i = 0; i < 100; i++){
+			for (var i = 0; i < 5; i++){
 				Withdraw();
 				rowS += rowG;
 			}
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 function Withdraw(){
 	$.ajax({
-		url: "https://www.random.org/integers/?num=10000&min=0&max=1&col=5&base=10&format=plain&rnd=new",
+		url: "https://www.random.org/integers/?num=5&min=0&max=1&col=5&base=10&format=plain&rnd=new",
 		type: "GET",
 		success: function(data){
 			data = data.replace(/	/g, "");
@@ -50,6 +50,9 @@ function DoubleUp(){
 function calc(){
 	var row = document.getElementById("included").textContent;
 	var sum = row.length;
+	var outArr0 = [];
+	var outArr00 = [];
+	var outArr000 = [];
 	var count0 = [row.match(/0/g).length, row.match(/1/g).length];
 	var count00 = [row.match(/00/g).length, row.match(/01/g).length, row.match(/10/g).length, row.match(/11/g).length];
 	var count000 = [row.match(/000/g).length, row.match(/001/g).length, row.match(/010/g).length, row.match(/011/g).length,
@@ -71,23 +74,20 @@ function calc(){
 	var count002 = Array.from(count000, x => x*100/sum002);
 	var i;
 	for (i = 0; i < ids1.length; i++){
-		document.getElementById(ids1[i]).innerHTML = ("Number of " + ids1[i] + " is: " + count0[i]);
-	};
-	for (i = 0; i < ids01.length; i++){
-		document.getElementById(ids01[i]).innerHTML = (ids01[i] + " is: " + percent[i] + "%");
-	};
+		outArr0[i] = ("Number of " + ids1[i] + " is: " + count0[i] + "<br />" + ids01[i] + " is: " + percent[i] + "%<br /><br />");
+	}
 	for (i = 0; i < ids2.length; i++){
-		document.getElementById(ids2[i]).innerHTML = ("Number of " + ids2[i] + " is: " + count00[i]);
-	};
-	for (i = 0; i < ids02.length; i++){
-		document.getElementById(ids02[i]).innerHTML = (ids02[i] + " is: " + count02[i] + "%");
-	};
+		outArr00[i] = ("Number of " + ids2[i] + " is: " + count00[i] + "<br />" + ids02[i] + " is: " + count02[i] + "%<br /><br />");
+	}
 	for (i = 0; i < ids3.length; i++){
-		document.getElementById(ids3[i]).innerHTML = ("Number of " + ids3[i] + " is: " + count000[i]);
-	};
-	for (i = 0; i < ids03.length; i++){
-		document.getElementById(ids03[i]).innerHTML = (ids03[i] + " is: " + count002[i] + "%");
-	};
+		outArr000[i] = ("Number of " + ids3[i] + " is: " + count000[i] + "<br />" + ids03[i] + " is: " + count002[i] + "%<br /><br />");
+	}
+	var outText0 = outArr0.join("");
+	var outText00 = outArr00.join("");
+	var outText000 = outArr000.join("");
+	document.getElementById("1-digit").innerHTML = (outText0);
+	document.getElementById("2-digit").innerHTML = (outText00);
+	document.getElementById("3-digit").innerHTML = (outText000);
 }
 
 function shuffle(array) {
