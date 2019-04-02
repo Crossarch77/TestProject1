@@ -73,7 +73,16 @@ function calcTwos(){
 	var row = document.getElementById("included").textContent;
 	var i;
 	var outArr00 = [];
-	var count00 = [row.match(/00/g).length, row.match(/01/g).length, row.match(/10/g).length, row.match(/11/g).length];
+	var match00 = [/00/g, /01/g, /10/g, /11/g]
+	var count00 = []
+	for (i = 0; i < match00.length; i++){
+		if (row.match(match00[i])){
+			count00[i] = row.match(match00[i]).length;
+		}
+		else{
+			count00[i] = 0;
+		}
+	}
 	var ids2 = ["00s", "01s", "10s", "11s"];
 	var ids02 = ["00s%", "01s%", "10s%", "11s%"];
 	var sum02 = count00.reduce(function(a,b){
@@ -85,16 +94,25 @@ function calcTwos(){
 	}
 	var outText00 = outArr00.join("");
 	document.getElementById("2-digit").innerHTML = (outText00);	
+		//}
 }
 
 function calcThrees(){
 	var row = document.getElementById("included").textContent;
 	var i;
 	var outArr000 = [];
-	var count000 = [row.match(/000/g).length, row.match(/001/g).length, row.match(/010/g).length, row.match(/011/g).length,
-					row.match(/100/g).length, row.match(/101/g).length, row.match(/110/g).length, row.match(/111/g).length];
+	var match000 = [/000/g, /001/g, /010/g, /011/g, /100/g, /101/g, /110/g, /111/g];
+	var count000 = [];
 	var ids3 = ["000s", "001s", "010s", "011s", "100s", "101s", "110s", "111s"];
 	var ids03 = ["000s%", "001s%", "010s%", "011s%", "100s%", "101s%", "110s%", "111s%"];
+	for (i = 0; i < match000.length; i++){
+		if (row.match(match000[i])){
+			count000[i] = row.match(match000[i]).length;
+		}
+		else{
+			count000[i] = 0;
+		}
+	}
 	var sum002 = count000.reduce(function(a,b){
 		return a+b
 	}, 0);
