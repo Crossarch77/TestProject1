@@ -3,7 +3,7 @@ var rowG = [];
 $(document).ready(function(){
 		$("#included").click(function getNumbers(){
 			var rowS = [];
-			for (var i = 0; i < 5; i++){
+			for (var i = 0; i < 100; i++){
 				Withdraw();
 				rowS += rowG;
 			}
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 function Withdraw(){
 	$.ajax({
-		url: "https://www.random.org/integers/?num=5&min=0&max=1&col=5&base=10&format=plain&rnd=new",
+		url: "https://www.random.org/integers/?num=10000&min=0&max=1&col=5&base=10&format=plain&rnd=new",
 		type: "GET",
 		success: function(data){
 			data = data.replace(/	/g, "");
